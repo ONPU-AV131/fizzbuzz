@@ -15,17 +15,12 @@ for I in $(find $BINDIR -maxdepth 1 -mindepth 1 -type d -not -name ".*"); do
     if [ -f ${I}/Makefile ]; then
         LNAME=$(make -C ${I} -s name 2>/dev/null)
         make -C $I -s exe 1>/dev/null 2>&1 || continue
-        TYPE=$(file -b "${I}/fizzbuzz" | cut -d' ' -f1)
-        if [ ${TYPE} != "ELF" ]; then
-            NT=$(expr ${NT} + 1)
-            echo "not ok ${NT} - ${LNAME} not ELF @${I}"
-            continue
-        fi
     fi
 
     if [ -f ${I}/fizzbuzz ]; then
         chmod +x ${I}/fizzbuzz
     else
+        NT=$(expr ${NT} + 1)
         echo "not ok ${NT} - no executable found @${I}"
         continue
     fi
