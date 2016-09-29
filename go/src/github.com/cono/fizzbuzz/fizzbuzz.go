@@ -6,9 +6,29 @@ import (
     "strconv"
 )
 
+func fizzbuzz(c chan string) {
+    i := 1
+
+    for {
+	s := ""
+	if i % 3 == 0 {
+	    s += "Fizz"
+	}
+	if i % 5 == 0 {
+	    s += "Buzz"
+	}
+	if s == "" {
+	    c <- strconv.Itoa(i)
+	} else {
+	    c <- s
+	}
+
+	i++
+    }
+}
+
 func main() {
     var max int = 100
-    var s string
     args := os.Args
 
     if len(args) > 1 {
@@ -17,19 +37,9 @@ func main() {
 	}
     }
 
+    c := make(chan string)
+    go fizzbuzz(c)
     for i := 1; i <= max; i++ {
-	s = ""
-
-	if i % 3 == 0 {
-	    s += "Fizz"
-	}
-	if i % 5 == 0 {
-	    s += "Buzz"
-	}
-	if s == "" {
-	    fmt.Printf("%d\n", i)
-	} else {
-	    fmt.Printf("%s\n", s)
-	}
+	fmt.Println(<-c)
     }
 }
