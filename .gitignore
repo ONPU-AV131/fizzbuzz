@@ -1,5 +1,12 @@
 /*/result.txt
-/*/fizzbuzz
 /*/fizzbuzz.o
 /go/bin
 /ghc/fizzbuzz.hi
+/assembly/fizzbuzz
+/c/fizzbuzz
+/c++/fizzbuzz
+/fpc/fizzbuzz
+/go/fizzbuzz
+/ghc/fizzbuzz
+/rust/fizzbuzz
+
