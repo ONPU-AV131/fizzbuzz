@@ -4,10 +4,10 @@ use v6;
 
 sub fizz-buzz($n) {
     my Str $result = "";
-    unless ($n % 3) {
+    if ($n %% 3) {
 	$result = "Fizz";
     }
-    unless ($n % 5) {
+    if ($n %% 5) {
 	$result ~= "Buzz";
     }
 
@@ -19,5 +19,5 @@ sub fizz-buzz($n) {
 sub MAIN(Int $max = 100) {
     my @generator = (0..*).map(&fizz-buzz);
 
-    .say for @generator[1..$max];
+    @generator[1..$max]>>.say;
 }
