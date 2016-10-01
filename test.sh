@@ -15,7 +15,7 @@ for I in $(find $BINDIR -maxdepth 1 -mindepth 1 -type d -not -name ".*"); do
     if [ -f ${I}/Makefile ]; then
         LNAME=$(make -C ${I} -s name 2>/dev/null)
         make -C $I -s exe 1>/dev/null 2>&1
-	if [ $? ]; then
+	if [ $? -ne 0 ]; then
 	    NT=$(expr ${NT} + 1)
 	    echo "not ok ${NT} - can't make @${I}"
 	    continue
