@@ -1,0 +1,15 @@
+#!/usr/bin/env node
+
+var fizzbuzz = function(n){
+  if( n % 15 == 0 ) { return "FizzBuzz" }
+  if( n % 3 == 0 ) { return "Fizz" }
+  if( n % 5 == 0 ) { return "Buzz" }
+  return n
+}
+
+var max = 100;
+if(process.argv[2]){
+  max = process.argv[2];
+}
+
+console.log(Array.apply(null, {length: max}).map(function(val, index) { index++; return fizzbuzz(index) } ).join("\n"));
