@@ -14,7 +14,12 @@ for I in $(find $BINDIR -maxdepth 1 -mindepth 1 -type d -not -name ".*"); do
     #build if makefile provided?
     if [ -f ${I}/Makefile ]; then
         LNAME=$(make -C ${I} -s name 2>/dev/null)
-        make -C $I -s exe 1>/dev/null 2>&1 || continue
+        make -C $I -s exe 1>/dev/null 2>&1
+	if [ $? ]; then
+	    NT=$(expr ${NT} + 1)
+	    echo "not ok ${NT} - can't make @${I}"
+	    continue
+	fi
     fi
 
     if [ -f ${I}/fizzbuzz ]; then
