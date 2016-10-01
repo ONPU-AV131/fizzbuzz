@@ -1,0 +1,16 @@
+#!/usr/bin/env clisp
+
+(defun range (min max &optional (step 1))
+    (when (<= min max)
+          (cons min (range (+ min step) max step))))
+
+(defun fizzbuzz (n)
+    (concatenate 'string
+        (when (zerop (mod n 3)) "Fizz")
+        (when (zerop (mod n 5)) "Buzz")
+        (unless (or (zerop (mod n 3))  (zerop (mod n 5))) (write-to-string n))))
+
+(defun maxv () (parse-integer (or (car *args*) "100")))
+
+(mapcar #'(lambda(x) (format t "~A~%" (fizzbuzz x))) (range 1 (maxv)))
+
