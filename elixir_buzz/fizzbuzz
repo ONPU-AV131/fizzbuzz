@@ -1,0 +1,17 @@
+#!/usr/bin/env elixir
+fizzbuzz = fn
+    n when rem(n, 5) == 0 and rem(n, 3) == 0 -> "FizzBuzz"
+    n when  rem(n, 3) == 0 -> "Fizz"
+    n when rem(n, 5) == 0 -> "Buzz"
+    n -> n
+end
+
+runbuzz  = fn(max) -> Enum.map(1..max, fizzbuzz) end
+
+args = System.argv
+buzz = case args do
+    [] -> runbuzz.(100)
+    [val] -> runbuzz.(String.to_integer(val))
+end
+
+IO.puts Enum.join(buzz, "\n")

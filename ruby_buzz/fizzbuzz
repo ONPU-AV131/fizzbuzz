@@ -1,0 +1,7 @@
+#!/usr/bin/env ruby
+max = 100
+max = ARGV[0].to_i if ARGV[0]
+
+puts (1..max).map{|i|
+  (i % 3 == 0 ? "Fizz" : "") + (i % 5 == 0 ? "Buzz" : "") + ( i % 3 != 0  && i % 5 != 0  ? i.to_s : "")
+}.join("\n")
