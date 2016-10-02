@@ -1,0 +1,23 @@
+#!/usr/bin/env ocaml
+
+open Printf
+
+let fizzbuzz i =
+  match i mod 3, i mod 5 with
+    0, 0 -> "FizzBuzz"
+  | 0, _ -> "Fizz"
+  | _, 0 -> "Buzz"
+  | _    -> string_of_int i
+
+let max_param =
+    if Array.length Sys.argv > 1 then
+        int_of_string Sys.argv.(1)
+    else
+        100
+
+let run max =
+    for i = 1 to max do print_endline (fizzbuzz i) done
+
+  let () =
+    run max_param
+

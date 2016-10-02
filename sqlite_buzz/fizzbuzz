@@ -1,0 +1,24 @@
+#!/bin/bash
+
+
+max=100
+[ "x" != x"$1" ] && max=$1
+
+/usr/bin/sqlite3 /dev/null '
+select
+    case
+        when a % 15 == 0 then "FizzBuzz"
+        when a % 3 == 0 then "Fizz"
+        when a % 5 == 0 then "Buzz"
+        else a end b
+    from (
+            WITH RECURSIVE
+            cnt(a) AS (
+                SELECT 1
+                UNION ALL
+                SELECT a+1 FROM cnt
+                LIMIT '$max'
+            )
+            SELECT a from cnt
+    ) as t1;
+'
