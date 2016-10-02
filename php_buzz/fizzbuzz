@@ -1,0 +1,16 @@
+#!/usr/bin/env php
+<?php
+    function fizzbuzz($i){
+        $res = ($i % 3 == 0 ? "Fizz" : "" ) . ($i % 5 == 0 ? "Buzz" : "");
+        return $res ? $res : $i;
+    }
+
+    $max = 100;
+    if(array_key_exists(1, $argv)){
+        $max = $argv[1];
+    }
+
+    foreach (range(1, $max) as $n){
+        echo fizzbuzz($n) . "\n";
+    }
+?>
