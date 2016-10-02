@@ -1,0 +1,23 @@
+#!/usr/bin/env lua
+
+function fizzbuzz (i)
+    if i % 15 == 0 then
+        return "FizzBuzz"
+    elseif i % 3 == 0 then
+        return "Fizz"
+    elseif i % 5 == 0 then
+        return "Buzz"
+    else
+        return i
+    end
+end
+
+max = 100
+if #arg > 0 then
+    max = arg[1]
+end
+
+
+for i=1,max do
+    print(fizzbuzz(i))
+end
