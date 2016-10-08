@@ -1,0 +1,5 @@
+import sys
+n=int(sys.argv[1]) if len(sys.argv)>1 else 100
+for i in range(1,n+1):
+    print ("Fizz" if i%3==0 else "")+("Buzz" if i%5==0 else "")+(str(i) if (i%3 * i%5)!=0 else "")
+
