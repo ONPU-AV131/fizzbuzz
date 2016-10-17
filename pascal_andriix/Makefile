@@ -1,5 +1,5 @@
-output: fizzbuzz.pas
-	fpc fizzbuzz.pas
+name:
+	echo "pascal"
+fizzbuzz: fizzbuzz.pas
+	  fpc fizzbuzz.pas
 
-clean:
-	rm *.o fizzbuzz
