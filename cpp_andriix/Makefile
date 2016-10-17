@@ -1,8 +1,5 @@
-output: fizzbuzz.o
-	g++ fizzbuzz.o -o fizzbuzz
-
-fizzbuzz.o: fizzbuzz.cpp
-	g++ -c fizzbuzz.cpp
-
-clean:
-	rm *.o fizzbuzz
+name:
+	echo "c++"
+fizzbuzz: fizzbuzz.cpp
+	g++ -o fizzbuzz fizzbuzz.cpp
+exe: fizzbuzz
