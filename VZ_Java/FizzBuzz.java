@@ -20,7 +20,7 @@ public class FizzBuzz {
 
         String[] fb = new String[n];
 
-        for (int i = 1; i < n; i++) {
+        for (int i = 1; i <= n; i++) {
             if (i%5==0 & i%3==0){
                 //fb[i] = "FizzBuzz";
                 System.out.print("FizzBuzz");
