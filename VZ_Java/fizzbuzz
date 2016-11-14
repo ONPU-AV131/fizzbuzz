@@ -1,0 +1,9 @@
+#!/bin/sh
+dir=$(dirname $0);
+cd $dir
+if [ x == x"$1" ]; then
+    java FizzBuzz;
+else
+    java FizzBuzz $1;
+fi
+cd - >/dev/null

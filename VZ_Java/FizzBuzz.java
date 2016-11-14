@@ -10,10 +10,9 @@ public class FizzBuzz {
 
     public static void main(String[] args) {
         //FizzBuzz(100);
-        int n = 0;
-        Scanner sc = new Scanner(System.in);
-        System.out.print("fizzbuzz ");
-        n = sc.nextInt();
+        int n = 100;
+	if (args.length > 0)
+		n = Integer.parseInt(args[0]);
         FizzBuzz(n);
     }
 
@@ -21,7 +20,7 @@ public class FizzBuzz {
 
         String[] fb = new String[n];
 
-        for (int i = 0; i < n; i++) {
+        for (int i = 1; i < n; i++) {
             if (i%5==0 & i%3==0){
                 //fb[i] = "FizzBuzz";
                 System.out.print("FizzBuzz");
